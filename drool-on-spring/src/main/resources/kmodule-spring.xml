@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:kie="http://drools.org/schema/kie-spring"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+             http://drools.org/schema/kie-spring https://raw.github.com/droolsjbpm/droolsjbpm-integration/master/kie-spring/src/main/resources/org/kie/spring/kie-spring-6.0.0.xsd">
+    <kie:kmodule id="demo">
+        <kie:kbase name="rules" packages="rules">
+            <kie:ksession name="ksession-rules" scope="prototype">
+                <kie:consoleLogger/>
+            </kie:ksession>
+        </kie:kbase>
+        <kie:kbase name="dtables" packages="dtables">
+            <kie:ksession name="ksession-dtables" scope="prototype">
+                <kie:consoleLogger/>
+            </kie:ksession>
+        </kie:kbase>
+        <kie:kbase name="process" packages="process">
+            <kie:ksession name="ksession-process" scope="prototype">
+                <kie:consoleLogger/>
+            </kie:ksession>
+        </kie:kbase>
+    </kie:kmodule>
+
+    <beans:bean id="kiePostProcessor" class="org.kie.spring.annotations.KModuleAnnotationPostProcessor"/>
+
+</beans:beans>
